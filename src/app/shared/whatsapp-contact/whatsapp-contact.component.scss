@@ -1,0 +1,83 @@
+:host { display: contents; }
+
+.whatsapp-contact {
+  position: fixed;
+  z-index: 1100;
+  right: calc(22px + env(safe-area-inset-right, 0px));
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 64px;
+  box-sizing: border-box;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: #128c4a;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(10, 45, 39, .26), 0 2px 6px rgba(10, 45, 39, .12);
+  text-decoration: none;
+  isolation: isolate;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+.whatsapp-contact:hover {
+  transform: translateY(-3px);
+  background: #0d783d;
+  box-shadow: 0 12px 32px rgba(10, 45, 39, .3);
+}
+.whatsapp-contact:focus-visible {
+  outline: 3px solid #0b4d9b;
+  outline-offset: 3px;
+}
+.whatsapp-icon {
+  display: block;
+  flex: none;
+  width: 33px;
+  height: 33px;
+}
+.whatsapp-tooltip {
+  position: absolute;
+  top: 50%;
+  right: calc(100% + 13px);
+  transform: translate(6px, -50%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  white-space: nowrap;
+  color: #0b2d5c;
+  background: #fff;
+  padding: 10px 13px;
+  border: 1px solid #dce6f2;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(11, 45, 92, .13);
+  font: 600 13px/1.3 Inter, system-ui, sans-serif;
+  transition: opacity .18s ease, transform .18s ease, visibility .18s ease;
+}
+.whatsapp-contact:hover .whatsapp-tooltip,
+.whatsapp-contact:focus-visible .whatsapp-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0, -50%);
+}
+
+@media (max-width: 720px) {
+  .whatsapp-contact {
+    width: 60px;
+    height: 60px;
+    right: calc(15px + env(safe-area-inset-right, 0px));
+    bottom: calc(19px + env(safe-area-inset-bottom, 0px));
+  }
+  .whatsapp-icon { width: 31px; height: 31px; }
+  .whatsapp-tooltip { display: none; }
+}
+@media (max-width: 360px) {
+  .whatsapp-contact { width: 56px; height: 56px; right: calc(12px + env(safe-area-inset-right, 0px)); }
+}
+@media (hover: none) {
+  .whatsapp-contact:hover { transform: none; }
+  .whatsapp-tooltip { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-contact, .whatsapp-tooltip { transition: none; }
+}
