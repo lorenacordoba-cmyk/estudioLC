@@ -46,8 +46,12 @@
                 <textarea name="caseDescription" rows="5" [(ngModel)]="form.caseDescription" required minlength="10"
                     placeholder="Contame brevemente qué pasó y qué necesitás resolver."></textarea>
             </label>
-            <div #contactTurnstile class="contact-turnstile"></div>
-            <button type="submit" [disabled]="isSubmitting || consultationForm.invalid">{{
+            <div #contactTurnstile class="contact-turnstile" aria-label="Verificación de seguridad"></div>
+            <button type="button" class="turnstile-retry" *ngIf="securityLoadFailed && securityRequired"
+                [disabled]="securityLoading || isSubmitting" (click)="retrySecurity()">
+                Reintentar verificación de seguridad
+            </button>
+            <button type="submit" [disabled]="isSubmitting || consultationForm.invalid || (securityRequired && !securityReady)">{{
                 isSubmitting ? 'Enviando...' : 'Enviar consulta' }}</button>
             <p class="form-note">Al enviar este formulario, solicitás que el estudio se comunique con vos únicamente para responder esta consulta.</p>
             <p class="message ok" *ngIf="submitMessage">{{ submitMessage }}</p>

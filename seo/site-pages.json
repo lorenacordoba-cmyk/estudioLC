@@ -1,0 +1,26 @@
+{
+  "/": {
+    "title": "Lorena Córdoba Abogada | Estudio Jurídico en Buenos Aires",
+    "description": "Lorena Córdoba, abogada en la Ciudad de Buenos Aires. Asesoramiento en amparos de salud, derecho del consumidor, daños y derecho previsional. Consultas presenciales y online."
+  },
+  "/contacto": {
+    "title": "Contacto | Lorena Córdoba Abogada",
+    "description": "Contactá al Estudio Jurídico Lorena Córdoba para realizar una consulta legal sobre salud, consumidor, daños o derecho previsional en Buenos Aires."
+  },
+  "/especialidades/amparos-de-salud": {
+    "title": "Amparos de salud | Abogada Lorena Córdoba",
+    "description": "Asesoramiento jurídico en amparos de salud, cobertura de medicamentos, cirugías, tratamientos y reclamos a obras sociales y prepagas."
+  },
+  "/especialidades/derecho-del-consumidor": {
+    "title": "Derecho del consumidor | Abogada Lorena Córdoba",
+    "description": "Asesoramiento jurídico en derecho del consumidor: incumplimientos, débitos indebidos, servicios defectuosos y reclamos a proveedores."
+  },
+  "/especialidades/danos-y-perjuicios": {
+    "title": "Daños y perjuicios | Abogada Lorena Córdoba",
+    "description": "Asesoramiento en reclamos por daños y perjuicios, responsabilidad civil, mediación y reparación de daños en Buenos Aires."
+  },
+  "/especialidades/derecho-previsional": {
+    "title": "Derecho previsional | Abogada Lorena Córdoba",
+    "description": "Asesoramiento en jubilaciones, reajustes de haberes, pensiones, reconocimiento de aportes y reclamos previsionales ante ANSES."
+  }
+}

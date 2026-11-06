@@ -238,3 +238,23 @@
 
 /* La cabecera móvil ocupa exactamente el ancho visible, incluido su padding. */
 .topbar { box-sizing: border-box; }
+
+/* Reintento accesible cuando el widget externo no pudo cargarse. */
+.contact-form .turnstile-retry {
+  width: auto;
+  min-height: 40px;
+  padding: 9px 14px;
+  background: transparent;
+  color: #0b4d9b;
+  border: 1px solid #9bb6da;
+  border-radius: 9px;
+  font: inherit;
+  font-size: .85rem;
+  cursor: pointer;
+  box-shadow: none;
+}
+.contact-form .turnstile-retry:not(:disabled):hover {
+  background: #ecf3fd;
+  box-shadow: none;
+}
+.contact-form .turnstile-retry:disabled { cursor: not-allowed; opacity: .65; }

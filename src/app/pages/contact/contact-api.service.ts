@@ -15,10 +15,11 @@ export interface ContactSubmitResponse {
 @Injectable({ providedIn: 'root' })
 export class ContactApiService {
   private readonly http = inject(HttpClient);
+  private readonly contactUrl = `${environment.apiUrl.replace(/\/+$/, '')}/api/contact`;
 
   submit(form: ConsultationForm, turnstileToken = ''): Promise<ContactSubmitResponse> {
     return firstValueFrom(
-      this.http.post<ContactSubmitResponse>(`${environment.apiUrl}/api/contact`, { ...form, turnstileToken }).pipe(timeout(15_000))
+      this.http.post<ContactSubmitResponse>(this.contactUrl, { ...form, turnstileToken }).pipe(timeout(15_000))
     );
   }
 }
