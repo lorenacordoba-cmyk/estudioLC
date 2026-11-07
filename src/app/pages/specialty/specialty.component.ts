@@ -42,8 +42,8 @@ export class SpecialtyComponent {
       icon: '§', title: 'Derecho del consumidor', eyebrow: 'Relaciones de consumo',
       intro: 'Defensa frente a incumplimientos, cobros indebidos y prácticas abusivas de proveedores de bienes y servicios.',
       description: 'Evaluamos la relación de consumo, la documentación disponible, los reclamos previos y los daños ocasionados para determinar la estrategia adecuada, tanto en instancias conciliatorias como judiciales.',
-      services: ['Incumplimientos contractuales','Cobros indebidos y débitos no autorizados','Servicios defectuosos o no prestados','Compras, financiación y comercio electrónico','Prácticas abusivas y falta de información','Daño directo, daño moral y daño punitivo cuando corresponda'],
-      whenToConsult: ['El proveedor no cumplió lo ofrecido o contratado.','Te cobraron importes que no reconocés o que ya habías cancelado.','Hiciste reclamos y no recibiste una solución razonable.','El incumplimiento te produjo un perjuicio económico o personal.'],
+      services: ['Estafas Informáticas','Préstamos bancarios sin consentimiento','Incumplimientos contractuales','Cobros indebidos y débitos no autorizados','Servicios defectuosos o no prestados','Compras, financiación y comercio electrónico','Prácticas abusivas y falta de información','Daño directo, daño moral y daño punitivo cuando corresponda'],
+      whenToConsult: ['El proveedor no cumplió lo ofrecido o contratado.','Estafas Informáticas, vaciamiento de cuentas.','Hiciste reclamos y no recibiste una solución razonable.','El incumplimiento te produjo un perjuicio económico o personal.','Reclamos civiles contra bancos y billeteras virtuales'],
       note: 'Conservar contratos, facturas, comprobantes, capturas y reclamos previos suele ser clave para acreditar el conflicto.',
       image: 'specialties/consumidor.svg', imageAlt: 'Ilustración jurídica vinculada al derecho del consumidor'
     },
