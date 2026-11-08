@@ -364,4 +364,19 @@
 @media (max-width: 420px) {
   .brand-copy strong { font-size: .81rem; }
 }
+
+.contact-page .intro::after {
+  background: radial-gradient(circle, rgba(91, 157, 232, .14), transparent 70%);
+}
+.contact-page .contact-form:hover {
+  border-color: rgba(91, 157, 232, .38);
+  box-shadow: 0 28px 62px rgba(37, 99, 185, .13);
+}
+.contact-page .contact-form.js-pointer-glow::before {
+  background: radial-gradient(
+    circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
+    rgba(11, 45, 92, .24),
+    transparent 48%
+  );
+}
 .contact-form .form-head span { color: var(--navy); }

@@ -522,9 +522,9 @@ a { color: inherit; }
 }
 
 /* Ajustes del sistema de movimiento para la paleta azul + dorado */
-.hero-copy::before{background:radial-gradient(circle,rgba(183,138,58,.10),rgba(183,138,58,0) 68%)}
-.hero-visual:hover{box-shadow:inset 0 0 0 1px rgba(215,182,111,.26)}
-.hero-visual:hover .legal-card{box-shadow:0 24px 52px rgba(5,25,55,.22);border-color:rgba(215,182,111,.52)}
+.hero-copy::before{background:radial-gradient(circle,rgba(91,157,232,.12),rgba(91,157,232,0) 68%)}
+.hero-visual:hover{box-shadow:inset 0 0 0 1px rgba(125,190,255,.38)}
+.hero-visual:hover .legal-card{box-shadow:0 24px 52px rgba(5,25,55,.22);border-color:rgba(125,190,255,.52)}
 .hero-visual.js-pointer-glow{
   background:
     radial-gradient(ellipse 78% 76% at var(--pointer-x,50%) var(--pointer-y,50%),rgba(91,157,232,.2),transparent 72%),
@@ -885,6 +885,18 @@ a { color: inherit; }
 .nav-links a:not(.mobile-nav-cta):focus-visible { color: #0b4d9b; }
 .nav-links a:not(.mobile-nav-cta):hover::after,
 .nav-links a:not(.mobile-nav-cta):focus-visible::after { right: 0; }
+.site .js-pointer-glow::before {
+  background: radial-gradient(
+    circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
+    rgba(11, 45, 92, .24),
+    transparent 48%
+  );
+}
+.site .process-grid article:hover,
+.site .values-grid > div:hover {
+  background: rgba(232, 243, 255, .82);
+  border-color: rgba(91, 157, 232, .38);
+}
 @media (min-width: 1000px) {
   .nav-links a:not(.mobile-nav-cta)::after { bottom: 24px; }
 }
