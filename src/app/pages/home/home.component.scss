@@ -888,14 +888,14 @@ a { color: inherit; }
 .site .js-pointer-glow::before {
   background: radial-gradient(
     circle at var(--pointer-x, 50%) var(--pointer-y, 50%),
-    rgba(11, 45, 92, .24),
+    rgba(183, 138, 58, .18),
     transparent 48%
   );
 }
 .site .process-grid article:hover,
 .site .values-grid > div:hover {
-  background: rgba(232, 243, 255, .82);
-  border-color: rgba(91, 157, 232, .38);
+  background: rgba(245, 241, 233, .72);
+  border-color: rgba(166, 129, 71, .36);
 }
 @media (min-width: 1000px) {
   .nav-links a:not(.mobile-nav-cta)::after { bottom: 24px; }
