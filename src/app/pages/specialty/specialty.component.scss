@@ -224,3 +224,58 @@
 
 /* La cabecera móvil ocupa exactamente el ancho visible, incluido su padding. */
 .topbar { box-sizing: border-box; }
+
+/* El enlace de regreso comparte el subrayado animado de la navegación principal. */
+.top-actions .back-link {
+  position: relative;
+  min-height: 42px;
+  padding: 0;
+  border-radius: 0;
+  color: #53647c;
+  font-size: .91rem;
+  font-weight: 650;
+  transition: color .2s ease;
+}
+.top-actions .back-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 5px;
+  height: 2px;
+  border-radius: 999px;
+  background: #2563b9;
+  transition: right .2s ease;
+}
+.top-actions .back-link:hover,
+.top-actions .back-link:focus-visible {
+  color: #0b4d9b;
+}
+.top-actions .back-link:hover::before,
+.top-actions .back-link:focus-visible::before { right: 0; }
+.brand-copy strong { color: var(--navy); }
+@media (max-width: 800px) {
+  .top-actions .back-link { font-size: .8rem; }
+}
+@media (max-width: 420px) {
+  .top-actions a:first-child:not(.header-whatsapp) {
+    display: inline-flex;
+    font-size: 0;
+  }
+  .top-actions .back-link::after {
+    content: 'Inicio';
+    font-size: .74rem;
+  }
+}
+@media (min-width: 1000px) {
+  .top-actions .back-link { min-height: 0; padding: 33px 0 31px; }
+  .top-actions .back-link::before { bottom: 24px; }
+}
+
+.brand-copy strong { font-size: 1.02rem; }
+@media (max-width: 720px) {
+  .brand-copy strong { font-size: .87rem; }
+}
+@media (max-width: 420px) {
+  .brand-copy strong { font-size: .81rem; }
+}

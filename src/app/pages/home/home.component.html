@@ -25,7 +25,13 @@
       <a href="#nosotros" (click)="closeMobileMenu()">Estudio</a>
       <a href="#proceso" (click)="closeMobileMenu()">Trabajo</a>
       <a routerLink="/contacto" (click)="closeMobileMenu()">Contacto</a>
+      <a class="mobile-nav-cta" href="https://wa.me/5491131076843" target="_blank" rel="noopener noreferrer" (click)="closeMobileMenu()"><img src="whatsapp-logo.svg" alt="" aria-hidden="true" width="22" height="22" /> Escribinos por WhatsApp</a>
     </nav>
+
+    <a class="header-whatsapp" href="https://wa.me/5491131076843" target="_blank" rel="noopener noreferrer" aria-label="Consultar por WhatsApp al 11 3107-6843 (abre una nueva pestaña)">
+      <img src="whatsapp-logo.svg" alt="" aria-hidden="true" width="22" height="22" />
+      <span class="header-whatsapp-label">Consultar por WhatsApp</span>
+    </a>
   </header>
 
   <section class="hero" aria-labelledby="hero-title">
@@ -60,7 +66,7 @@
       </div>
       <div class="hero-signature">
         <span>LC</span>
-        <div><strong>Lorena Córdoba</strong><small>Abogada</small></div>
+        <div class="brand-copy"><strong>Lorena Córdoba</strong><small>Estudio Jurídico</small></div>
       </div>
     </div>
   </section>
@@ -130,7 +136,7 @@
     <div class="section-heading process-heading" appReveal>
       <div>
         <p class="kicker">Cómo trabajamos</p>
-        <h2>Un proceso simple para ordenar una situación compleja.</h2>
+        <h2>Un proceso simple para ordenar<br class="process-heading-break"> una situación compleja.</h2>
       </div>
     </div>
     <div class="process-grid">

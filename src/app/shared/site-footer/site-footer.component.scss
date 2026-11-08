@@ -10,6 +10,8 @@
 /* Blue + Gold Edition */
 :host{--navy:#0b2d5c;--gold:#b78a3a;background:#fff;border-top-color:#dce6f2}
 .brand{color:#17243a}
+.brand-copy strong{color:var(--navy)}
+.brand-copy strong{font-size:1.02rem}
 .footer p{color:#748196}
 
 @media(max-width:720px){
@@ -20,6 +22,8 @@
   }
   .footer p{font-size:.76rem;line-height:1.5;}
 }
+@media(max-width:720px){.brand-copy strong{font-size:.87rem}}
+@media(max-width:420px){.brand-copy strong{font-size:.81rem}}
 
 
 /* Desktop: footer alineado con los contenedores principales */
