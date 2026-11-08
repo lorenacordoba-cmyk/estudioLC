@@ -22,15 +22,10 @@
 
     <nav id="main-navigation" class="nav-links" [class.is-open]="mobileMenuOpen" aria-label="Navegación principal">
       <a href="#areas" (click)="closeMobileMenu()">Áreas</a>
-      <a href="#nosotros" (click)="closeMobileMenu()">El estudio</a>
-      <a href="#proceso" (click)="closeMobileMenu()">Cómo trabajamos</a>
+      <a href="#nosotros" (click)="closeMobileMenu()">Estudio</a>
+      <a href="#proceso" (click)="closeMobileMenu()">Trabajo</a>
       <a routerLink="/contacto" (click)="closeMobileMenu()">Contacto</a>
     </nav>
-
-    <a class="header-whatsapp" href="https://wa.me/5491131076843" target="_blank" rel="noopener noreferrer" aria-label="Consultar por WhatsApp al 11 3107-6843 (abre una nueva pestaña)">
-      <img src="whatsapp-logo.svg" alt="" aria-hidden="true" width="22" height="22" />
-      <span class="header-whatsapp-label">Consultar por WhatsApp</span>
-    </a>
   </header>
 
   <section class="hero" aria-labelledby="hero-title">
@@ -84,25 +79,25 @@
 
     <div class="practice-grid">
       <article class="practice-card" appReveal [revealDelay]="70" appPointerGlow routerLink="/especialidades/amparos-de-salud" tabindex="0" role="link" aria-label="Ver especialidad Amparos de salud">
-        <span class="card-number">01</span>
+        <span class="card-number"></span>
         <h3>Amparos de salud</h3>
         <p>Cobertura de medicamentos, tratamientos, cirugías, prestaciones, discapacidad y cuidados.</p>
         <span class="card-more">Ver especialidad <span>↗</span></span>
       </article>
       <article class="practice-card" appReveal [revealDelay]="70" appPointerGlow routerLink="/especialidades/derecho-del-consumidor" tabindex="0" role="link" aria-label="Ver especialidad Derecho del consumidor">
-        <span class="card-number">02</span>
+        <span class="card-number"></span>
         <h3>Derecho del consumidor</h3>
         <p>Reclamos por incumplimientos, prácticas abusivas, daños y conflictos en relaciones de consumo.</p>
         <span class="card-more">Ver especialidad <span>↗</span></span>
       </article>
       <article class="practice-card" appReveal [revealDelay]="140" appPointerGlow routerLink="/especialidades/danos-y-perjuicios" tabindex="0" role="link" aria-label="Ver especialidad Daños y perjuicios">
-        <span class="card-number">03</span>
+        <span class="card-number"></span>
         <h3>Daños y perjuicios</h3>
         <p>Evaluación de responsabilidad, cuantificación del daño y estrategia de reclamo judicial.</p>
         <span class="card-more">Ver especialidad <span>↗</span></span>
       </article>
       <article class="practice-card" appReveal [revealDelay]="210" appPointerGlow routerLink="/especialidades/derecho-previsional" tabindex="0" role="link" aria-label="Ver especialidad Derecho previsional">
-        <span class="card-number">04</span>
+        <span class="card-number"></span>
         <h3>Derecho previsional</h3>
         <p>Orientación en jubilaciones, haberes, reajustes y reclamos frente a organismos previsionales.</p>
         <span class="card-more">Ver especialidad <span>↗</span></span>
@@ -119,15 +114,14 @@
       <p class="kicker">El estudio</p>
       <h2>Asesoramiento profesional, cercano y sin vueltas.</h2>
       <p>
-        Trabajo cada caso de manera personalizada, explicando con claridad las alternativas, los tiempos y la
-        documentación necesaria. La prioridad es que puedas tomar decisiones informadas y que la estrategia legal
-        tenga un objetivo concreto.
+        Trabajo cada caso de manera personalizada, explicando con claridad las alternativas, la documentación 
+        necesaria, la estrategia legal y el objetivo concreto. Acompañando en cada etapa.
       </p>
       <div class="values-grid">
-        <div><span>01</span><strong>Escucha y análisis</strong><p>Primero entendemos el problema completo.</p></div>
-        <div><span>02</span><strong>Estrategia a medida</strong><p>No todos los casos se resuelven de la misma forma.</p></div>
-        <div><span>03</span><strong>Seguimiento real</strong><p>Acompañamiento durante todo el proceso.</p></div>
-        <div><span>04</span><strong>Comunicación clara</strong><p>Información concreta, sin tecnicismos innecesarios.</p></div>
+        <div><span>01</span><strong>Consulta Gratuita</strong><p>Contanos tu caso, sin costo ni compromiso.</p></div>
+        <div><span>02</span><strong>Evaluamos el caso</strong><p>Analizamos que acción realizar y la mejor estrategia a seguir.</p></div>
+        <div><span>03</span><strong>Acción Rapida</strong><p>Realizamos la solucion juridica correspondiente de acuerdo al coso.</p></div>
+        <div><span>04</span><strong>Resultado</strong><p>Llegas al objetivo concreto.</p></div>
       </div>
     </div>
   </section>
@@ -140,10 +134,10 @@
       </div>
     </div>
     <div class="process-grid">
-      <article appReveal appPointerGlow><span>01</span><h3>Consulta inicial</h3><p>Nos contás la situación y revisamos si existe una vía legal adecuada para tu caso.</p></article>
-      <article appReveal [revealDelay]="70" appPointerGlow><span>02</span><h3>Documentación</h3><p>Te indicamos qué comprobantes, negativas, estudios o antecedentes necesitamos.</p></article>
-      <article appReveal [revealDelay]="140" appPointerGlow><span>03</span><h3>Estrategia</h3><p>Definimos el reclamo, sus prioridades y, cuando corresponde, la medida urgente.</p></article>
-      <article appReveal [revealDelay]="210" appPointerGlow><span>04</span><h3>Seguimiento</h3><p>Impulsamos el expediente y te mantenemos al tanto de cada avance relevante.</p></article>
+      <article appReveal appPointerGlow><span>01</span><h3>Consulta Gratuita</h3><p>Contanos tu caso, que es lo que necesitas, sin costo ni compromiso.</p></article>
+      <article appReveal [revealDelay]="70" appPointerGlow><span>02</span><h3>Evaluamos el caso</h3><p>Analizamos que acción a realizar y la mejor estrategia a seguir. Documentación necesaria. </p></article>
+      <article appReveal [revealDelay]="140" appPointerGlow><span>03</span><h3>Acción Rapida</h3><p>Realizamos la solucion juridica correspondiente de acuerdo tu caso.</p></article>
+      <article appReveal [revealDelay]="210" appPointerGlow><span>04</span><h3>Resultado</h3><p>Llegas al objetivo concreto.</p></article>
     </div>
   </section>
 
