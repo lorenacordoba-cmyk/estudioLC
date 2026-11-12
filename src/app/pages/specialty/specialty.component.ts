@@ -48,8 +48,8 @@ export class SpecialtyComponent {
       image: 'specialties/consumidor.svg', imageAlt: 'Ilustración jurídica vinculada al derecho del consumidor'
     },
     'danos-y-perjuicios': {
-      icon: '◇', title: 'Daños y perjuicios', eyebrow: 'Responsabilidad civil',
-      intro: 'Un daño puede generar derecho a reparación cuando existe responsabilidad y puede demostrarse el perjuicio sufrido.',
+      icon: '◇', title: 'Demanda por daños y perjuicios', eyebrow: 'Responsabilidad civil',
+      intro: 'Un hecho ilícito o el incumplimiento de una obligación puede probocar un daño o perjuicio que debe ser reparado. La protección de un derecho empieza por hacerlo valer.',
       description: 'Estudiamos los hechos, la responsabilidad de las partes, la prueba disponible y los distintos rubros indemnizatorios para diseñar un reclamo fundado y proporcional al daño.',
       services: ['Responsabilidad contractual y extracontractual','Daños materiales y lucro cesante','Daño moral y consecuencias no patrimoniales','Incumplimientos que generan perjuicios indemnizables','Negociaciones y mediaciones prejudiciales','Demandas judiciales de reparación integral'],
       whenToConsult: ['Sufriste un perjuicio por una conducta u omisión de otra persona o empresa.','Necesitás determinar quién resulta jurídicamente responsable.','Querés conocer qué daños pueden reclamarse y cómo probarlos.','Recibiste una propuesta de acuerdo y necesitás evaluarla.'],
