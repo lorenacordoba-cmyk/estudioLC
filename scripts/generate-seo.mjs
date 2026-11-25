@@ -1,10 +1,11 @@
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
-import { dirname } from 'node:path';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 const origin = 'https://lorenacordobaabogada.com.ar';
 const pages = JSON.parse(await readFile(new URL('../seo/site-pages.json', import.meta.url), 'utf8'));
-const outputDir = new URL('../dist/amp-salud-lc/browser/', import.meta.url);
-const mainHtml = await readFile(new URL('index.html', outputDir), 'utf8');
+const outputDir = fileURLToPath(new URL('../dist/amp-salud-lc/browser/', import.meta.url));
+const mainHtml = await readFile(join(outputDir, 'index.html'), 'utf8');
 
 function escapeHtml(text) {
   return String(text).replaceAll('&', '&amp;').replaceAll('"', '&quot;')
@@ -31,9 +32,9 @@ for (const [route, config] of Object.entries(pages)) {
   html = replaceMeta(html, 'name', 'twitter:description', config.description);
 
   const output = route === '/' ? 'index.html' : `${route.slice(1)}.html`;
-  const fileUrl = new URL(output, outputDir);
-  await mkdir(dirname(fileUrl.pathname), {recursive: true});
-  await writeFile(fileUrl, html, 'utf8');
+  const filePath = join(outputDir, output);
+  await mkdir(dirname(filePath), {recursive: true});
+  await writeFile(filePath, html, 'utf8');
   count++;
 }
 console.log(`SEO: ${count} HTML con metadatos por ruta creados en dist/amp-salud-lc/browser.`);
