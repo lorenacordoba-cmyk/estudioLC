@@ -2,8 +2,9 @@ import { TestBed } from '@angular/core/testing';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { AssistantComponent } from './assistant.component';
 import { AssistantApiService } from './assistant-api.service';
-import { TurnstileService } from './turnstile.service';
+import { TurnstileService } from '../security/turnstile.service';
 import { AssistantChatResponse } from '../../interfaces';
+import { environment } from '../../../environments/environment';
 
 describe('Asistente jurídico — continuidad del chat', () => {
   let api: {
@@ -13,9 +14,19 @@ describe('Asistente jurídico — continuidad del chat', () => {
     resetSession: ReturnType<typeof vi.fn>;
     submitConsultation: ReturnType<typeof vi.fn>;
   };
+  let turnstile: {
+    render: ReturnType<typeof vi.fn>;
+    remove: ReturnType<typeof vi.fn>;
+    reset: ReturnType<typeof vi.fn>;
+  };
 
   beforeEach(async () => {
     sessionStorage.clear();
+    turnstile = {
+      render: vi.fn().mockResolvedValue('widget-1'),
+      remove: vi.fn(),
+      reset: vi.fn()
+    };
     api = {
       createSession: vi.fn().mockResolvedValue({ sessionId: 'sesion-1', sessionToken: 'token-1', expiresAt: '2099-01-01' }),
       sendMessage: vi.fn(),
@@ -27,9 +38,36 @@ describe('Asistente jurídico — continuidad del chat', () => {
       imports: [AssistantComponent],
       providers: [
         { provide: AssistantApiService, useValue: api },
-        { provide: TurnstileService, useValue: { remove: vi.fn(), render: vi.fn(), reset: vi.fn() } }
+        { provide: TurnstileService, useValue: turnstile }
       ]
     }).compileComponents();
+  });
+
+  it('renderiza Turnstile después de crear el contenedor condicional del asistente', async () => {
+    const previousSiteKey = environment.turnstileSiteKey;
+    environment.turnstileSiteKey = 'test-site-key';
+    try {
+      const fixture = TestBed.createComponent(AssistantComponent);
+      fixture.detectChanges();
+      const component = fixture.componentInstance;
+      component.assistantOpen = true;
+      component.needsVerification = true;
+      fixture.detectChanges();
+      await fixture.whenStable();
+      fixture.detectChanges();
+
+      const container = fixture.nativeElement.querySelector('.turnstile-container');
+      expect(environment.turnstileSiteKey).toBe('test-site-key');
+      expect(container).not.toBeNull();
+      expect(turnstile.render).toHaveBeenCalledOnce();
+      expect(turnstile.render).toHaveBeenCalledWith(
+        container,
+        'test-site-key',
+        expect.objectContaining({ onSuccess: expect.any(Function) })
+      );
+    } finally {
+      environment.turnstileSiteKey = previousSiteKey;
+    }
   });
 
   it('conserva el campo para responder después de la respuesta de Groq', async () => {

@@ -94,6 +94,8 @@
         <p>Antes de iniciar una nueva consulta verificamos que la conexión sea legítima. Esto protege al estudio y a quienes usan el asistente.</p>
         <div #turnstileContainer class="turnstile-container"></div>
         <span *ngIf="securityLoading" class="security-loading">Creando sesión segura…</span>
+        <button *ngIf="errorMessage && !securityLoading" type="button" class="security-retry"
+          (click)="retrySecurityVerification()">Reintentar verificación</button>
       </div>
     </div>
 

@@ -329,6 +329,7 @@
 .security-card p { margin: 4px 0 10px; color: #66778b; font-size: .72rem; line-height: 1.4; }
 .turnstile-container { min-height: 65px; }
 .security-loading { display: inline-block; margin-top: 5px; color: #56708d; font-size: .7rem; }
+.security-retry { margin-top: 8px; padding: 6px 10px; border: 1px solid #cddced; border-radius: 8px; background: #fff; color: #1d5ca5; font: inherit; font-size: .72rem; cursor: pointer; }
 .assistant-footer textarea:disabled { background: #f3f5f8; color: #7c8795; cursor: not-allowed; }
 
 /* =========================================================

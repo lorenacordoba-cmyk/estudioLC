@@ -48,6 +48,7 @@ export class AssistantComponent implements OnInit, AfterViewInit, AfterViewCheck
   private readonly turnstile = inject(TurnstileService);
   private readonly cdr = inject(ChangeDetectorRef);
   private turnstileWidgetId?: string;
+  private turnstileRenderAttempted = false;
   private sessionInitialized = false;
   private notificationPollTimer: ReturnType<typeof setTimeout> | null = null;
   private lastRenderedChatState = '';
@@ -108,7 +109,12 @@ export class AssistantComponent implements OnInit, AfterViewInit, AfterViewCheck
    * la respuesta o el indicador de procesamiento. En OnPush, una microtarea
    * tras markForCheck puede ejecutarse antes de que exista esa burbuja. */
   ngAfterViewChecked(): void {
-    if (!this.assistantOpen || !this.assistantBody?.nativeElement) return;
+    if (!this.assistantOpen) return;
+    if (this.needsVerification && !this.turnstileRenderAttempted && this.turnstileContainer?.nativeElement) {
+      this.turnstileRenderAttempted = true;
+      void this.renderTurnstile();
+    }
+    if (!this.assistantBody?.nativeElement) return;
     const renderedState = [
       this.assistantLoading,
       this.restoringSession,
@@ -255,8 +261,7 @@ export class AssistantComponent implements OnInit, AfterViewInit, AfterViewCheck
       void this.ensureSessionReady();
       queueMicrotask(() => {
         this.scrollAssistantToBottom();
-        if (this.needsVerification) void this.renderTurnstile();
-        else if (this.canChat) this.focusComposer();
+        if (this.canChat) this.focusComposer();
       });
     }
   }
@@ -269,9 +274,19 @@ export class AssistantComponent implements OnInit, AfterViewInit, AfterViewCheck
     void this.ensureSessionReady();
     queueMicrotask(() => {
       this.scrollAssistantToBottom();
-      if (this.needsVerification) void this.renderTurnstile();
-      else if (this.canChat) this.focusComposer();
+      if (this.canChat) this.focusComposer();
     });
+  }
+
+  retrySecurityVerification(): void {
+    if (!this.needsVerification || this.securityLoading) return;
+    this.errorMessage = '';
+    if (this.turnstileWidgetId) {
+      this.turnstile.reset(this.turnstileWidgetId);
+    } else {
+      this.turnstileRenderAttempted = false;
+    }
+    this.cdr.markForCheck();
   }
 
   private async ensureSessionReady(): Promise<void> {
@@ -480,8 +495,8 @@ export class AssistantComponent implements OnInit, AfterViewInit, AfterViewCheck
     }
 
     this.needsVerification = true;
+    this.turnstileRenderAttempted = false;
     this.cdr.markForCheck();
-    queueMicrotask(() => void this.renderTurnstile());
   }
 
   private async renderTurnstile(): Promise<void> {
@@ -627,6 +642,7 @@ export class AssistantComponent implements OnInit, AfterViewInit, AfterViewCheck
     this.assistantInput = '';
     this.resizeComposerSoon();
     this.needsVerification = false;
+    this.turnstileRenderAttempted = false;
     this.turnstile.remove(this.turnstileWidgetId);
     this.turnstileWidgetId = undefined;
     this.assistantMessages = [{ role: 'bot', text: GREETING }];
@@ -660,7 +676,8 @@ export class AssistantComponent implements OnInit, AfterViewInit, AfterViewCheck
   }
 
   private updateMobileViewport(): void {
-    if (typeof window === 'undefined' || !window.matchMedia('(max-width: 700px)').matches) return;
+    if (typeof window === 'undefined' || typeof window.matchMedia !== 'function' ||
+        !window.matchMedia('(max-width: 700px)').matches) return;
     const panel = this.assistantPanel?.nativeElement;
     const viewport = window.visualViewport;
     if (!panel || !viewport) return;
