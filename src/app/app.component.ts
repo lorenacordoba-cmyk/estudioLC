@@ -2,13 +2,12 @@ import { Component, DestroyRef, inject } from '@angular/core';
 import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { WhatsappContactComponent } from './shared/whatsapp-contact/whatsapp-contact.component';
 import { SeoService } from './shared/seo/seo.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  imports: [RouterOutlet, WhatsappContactComponent]
+  imports: [RouterOutlet]
 })
 export class AppComponent {
   private readonly router = inject(Router);

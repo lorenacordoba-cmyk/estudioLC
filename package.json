@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build && node scripts/generate-seo.mjs",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "test:assistant-drag": "node scripts/test-assistant-drag.cjs",
+    "test:assistant-scroll": "node scripts/test-assistant-autoscroll.cjs"
   },
   "private": true,
   "packageManager": "npm@11.12.1",

@@ -17,12 +17,19 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
+            "outputPath": "../public",
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
+              "src/_redirects",
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "WhatsApp.png",
+                "input": "src/img",
+                "output": "img"
               }
             ],
             "styles": [

@@ -89,6 +89,8 @@ a { color: inherit; }
 .hero-signature div { display:flex; flex-direction:column; }
 .hero-signature .brand-copy strong { color:#f4f7fb; }
 .hero-signature .brand-copy small { color:#94a6aa; }
+.hero-signature strong { font-family:Georgia,serif; font-weight:500; font-size:.94rem; }
+.hero-signature small { margin-top:3px; color:#94a6aa; font-size:.68rem; text-transform:uppercase; letter-spacing:.1em; }
 
 .practice-section, .studio-section, .process-section { width:min(1180px,calc(100% - 40px)); margin:0 auto; padding:105px 0; }
 .section-heading { display:grid; grid-template-columns:1.3fr .7fr; gap:70px; align-items:end; margin-bottom:44px; }

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { AssistantComponent } from '../../shared/assistant/assistant.component';
 import { SiteFooterComponent } from '../../shared/site-footer/site-footer.component';
 import { RevealDirective } from '../../shared/motion/reveal.directive';
 import { PointerGlowDirective } from '../../shared/motion/pointer-glow.directive';
@@ -21,7 +22,7 @@ type Specialty = {
 @Component({
   selector: 'app-specialty',
   standalone: true,
-  imports: [CommonModule, RouterLink, SiteFooterComponent, RevealDirective, PointerGlowDirective],
+  imports: [CommonModule, RouterLink, AssistantComponent, SiteFooterComponent, RevealDirective, PointerGlowDirective],
   templateUrl: './specialty.component.html',
   styleUrls: ['./specialty.component.scss']
 })
